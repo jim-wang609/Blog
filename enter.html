@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#5B54E8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>站主入口 · Kimon's Blog</title>
+<meta name="description" content="站主入口：登录后回到自己的首页，或进入内容管理台。">
+  <meta property="og:site_name" content="Kimon's Blog">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="站主入口 · Kimon's Blog">
+  <meta property="og:description" content="站主入口：登录后回到自己的首页，或进入内容管理台。">
+  <meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/dialog.css">
+<link rel="stylesheet" href="assets/css/enter.css">
+<script>
+(function(){try{var t=localStorage.getItem('kimon-theme');if(t){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/boot.js"></script>
+<script src="assets/js/dialog.js"></script>
+</head>
+<body class="enter-page">
+
+<div class="ambient" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span>
+  <span class="blob b3"></span><span class="blob b4"></span>
+</div>
+
+<main class="door">
+
+  <div class="door-top">
+    <a class="door-back" href="home.html">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      回到首页
+    </a>
+    <button class="icon-btn door-theme" id="door-theme" type="button" aria-label="切换主题" title="切换主题">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+
+  <div class="door-grid">
+
+    <!-- 左：品牌叙事，全部数据来自数据库 -->
+    <section class="door-story">
+      <span class="door-kicker"><i></i> Owner's door · 站主入口</span>
+
+      <h1 class="door-headline">这扇门，<br><em>只为自己开。</em></h1>
+
+      <p class="door-lead" id="door-lead">站在这儿的你，既是读者，也是这里的主人。</p>
+
+      <div class="door-owner glass">
+        <div class="door-avatar" id="door-avatar"><span class="avatar-letter">K</span></div>
+        <div class="door-owner-txt">
+          <strong id="door-owner-name">Kimon</strong>
+          <span id="door-owner-sub">正在加载站点信息…</span>
+        </div>
+        <div class="door-owner-dot" title="站点在线"></div>
+      </div>
+
+      <div class="door-stats" id="door-stats">
+        <div class="door-stat"><b id="stat-posts">—</b><span>篇文章</span></div>
+        <div class="door-stat"><b id="stat-essays">—</b><span>篇随笔</span></div>
+        <div class="door-stat"><b id="stat-visits">—</b><span>次访问</span></div>
+      </div>
+
+      <p class="door-note">文章、随笔、笔记、资源与设置，都从这里写、改、发布。<br>访客看到的每一个字，都来自同一个数据库。</p>
+    </section>
+
+    <!-- 右：玻璃卡片，按登录状态切换视图 -->
+    <section class="door-panel">
+      <div class="door-card glass">
+
+        <!-- 载入中 -->
+        <div class="door-view" id="view-loading">
+          <div class="door-loading"><span></span><span></span><span></span></div>
+          <p class="door-muted">正在连接站点…</p>
+        </div>
+
+        <!-- 未登录 -->
+        <div class="door-view" id="view-login" hidden>
+          <div class="door-badge">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l2 2M14 9l2 2"/></svg>
+          </div>
+          <span class="door-overline">Sign in</span>
+          <h2>欢迎回来</h2>
+          <p class="door-card-sub">验证身份后，就能回到你自己的首页，或者进去写点东西。</p>
+
+          <form id="login-form" autocomplete="on" novalidate>
+            <label class="door-label" for="login-name">账号</label>
+            <div class="door-input">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/></svg>
+              <input id="login-name" type="text" placeholder="管理员账号" autocomplete="username" spellcheck="false">
+            </div>
+
+            <label class="door-label" for="login-pass">密码</label>
+            <div class="door-input">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 018 0v3.5"/></svg>
+              <input id="login-pass" type="password" placeholder="输入密码" autocomplete="current-password">
+              <button class="door-eye" id="toggle-pass" type="button" aria-label="显示密码" title="显示密码">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
+              </button>
+            </div>
+
+            <div class="door-dest">
+              <span class="door-dest-label">登录后</span>
+              <label><input type="radio" name="dest" value="home" checked><span>回我的首页</span></label>
+              <label><input type="radio" name="dest" value="studio"><span>进管理台</span></label>
+            </div>
+
+            <div class="door-msg" id="login-msg" role="alert"></div>
+
+            <button class="door-primary" id="login-submit" type="submit">
+              <span>进入</span>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+
+          <div class="door-divider"><span>或者</span></div>
+          <a class="door-ghost" href="home.html">先不登录，回首页逛逛</a>
+        </div>
+
+        <!-- 首次初始化 -->
+        <div class="door-view" id="view-setup" hidden>
+          <div class="door-badge">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.2-2.8 7.6-7 9-4.2-1.4-7-4.8-7-9V6z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/></svg>
+          </div>
+          <span class="door-overline">First run</span>
+          <h2>先设一个管理员</h2>
+          <p class="door-card-sub">第一次使用，创建一个账号。之后所有内容的增删改都靠它。</p>
+
+          <form id="setup-form" novalidate>
+            <label class="door-label" for="setup-name">账号</label>
+            <div class="door-input">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/></svg>
+              <input id="setup-name" type="text" value="admin" autocomplete="username">
+            </div>
+            <label class="door-label" for="setup-pass">密码（至少 10 位）</label>
+            <div class="door-input">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 018 0v3.5"/></svg>
+              <input id="setup-pass" type="password" autocomplete="new-password">
+            </div>
+            <label class="door-label" for="setup-pass2">再输一次</label>
+            <div class="door-input">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.2"/><path d="M8 10.5V7a4 4 0 018 0v3.5"/></svg>
+              <input id="setup-pass2" type="password" autocomplete="new-password">
+            </div>
+            <div class="door-msg" id="setup-msg" role="alert"></div>
+            <button class="door-primary" id="setup-submit" type="submit">
+              <span>创建并进入</span>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- 已登录：我的空间（门厅） -->
+        <div class="door-view" id="view-lobby" hidden>
+          <div class="lobby-head">
+            <div class="door-avatar sm" id="lobby-avatar"><span class="avatar-letter">K</span></div>
+            <div>
+              <span class="door-overline">My space · 我的空间</span>
+              <h2 id="lobby-title">欢迎回来，Kimon</h2>
+            </div>
+          </div>
+          <p class="door-card-sub">今天想做点什么？所有入口都在这儿了。</p>
+
+          <div class="lobby-metrics">
+            <div><b id="m-posts">—</b><span>篇文章</span></div>
+            <div><b id="m-resources">—</b><span>个资源</span></div>
+            <div><b id="m-visits">—</b><span>次访问</span></div>
+          </div>
+
+          <div class="lobby-actions">
+            <a class="door-primary" href="home.html" id="lobby-home">
+              <span>回到我的首页</span>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z"/><path d="M9 20v-6h6v6"/></svg>
+            </a>
+            <a class="door-secondary" href="studio.html">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="7" rx="1.4"/><rect x="3" y="14" width="7" height="7" rx="1.4"/><rect x="14" y="14" width="7" height="7" rx="1.4"/></svg>
+              进入管理台
+            </a>
+            <a class="door-secondary" href="studio.html#posts">
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L8 18l-4 1 1-4z"/></svg>
+              管理文章
+            </a>
+          </div>
+
+          <div class="lobby-foot">
+            <span id="lobby-who">已登录</span>
+            <button class="door-text" id="lobby-logout" type="button">退出登录</button>
+          </div>
+        </div>
+
+        <!-- 访客账号：权限不足 -->
+        <div class="door-view" id="view-guest" hidden>
+          <div class="door-badge muted">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>
+          </div>
+          <span class="door-overline">Visitor account</span>
+          <h2>这是访客账号</h2>
+          <p class="door-card-sub" id="guest-desc">当前账号只能留言，不能管理内容。请用管理员账号登录。</p>
+          <button class="door-secondary wide" id="guest-switch" type="button">换个账号登录</button>
+          <a class="door-ghost" href="home.html">回首页逛逛</a>
+        </div>
+
+      </div>
+
+      <p class="door-foot">© <span data-year>2026</span> <span id="foot-name">Kimon</span> · 这扇门只为主人留着</p>
+    </section>
+
+  </div>
+</main>
+
+<script src="assets/js/remote.js"></script>
+<script src="assets/js/enter-fit.js"></script>
+<script src="assets/js/enter.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# 生产环境配置：启动时加 --spring.profiles.active=prod（或设置 SPRING_PROFILES_ACTIVE=prod）。
+#
+# 生产数据库连接必须由环境变量提供，故意不写默认值：
+# DB_URL / DB_USER / DB_PASSWORD 任意一个缺失，启动就直接失败，
+# 避免误连到默认的本地 root/root 库。
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+
+app:
+  # 生产强制只走 HTTPS Cookie（Nginx 终止 TLS 时后端仍按 https 下发 Secure Cookie）
+  cookie-secure: true
+
+# 其余配置沿用 application.yml；需要覆盖时在这里显式写同名键。

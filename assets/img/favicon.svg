@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#6E67F0"/>
+      <stop offset="1" stop-color="#463FCF"/>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.18"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="clip"><rect width="64" height="64" rx="17"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="64" height="64" fill="url(#bg)"/>
+    <rect width="64" height="64" fill="url(#sheen)"/>
+  </g>
+  <text x="32" y="45.5" text-anchor="middle"
+        font-family="ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace"
+        font-size="37" font-weight="700" fill="#FFFFFF">K</text>
+</svg>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#5B54E8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后端溜走了 · Kimon's Blog</title>
+<meta name="description" content="后端暂时不在，等它回来就自动放行。">
+  <meta name="robots" content="noindex">
+  <meta property="og:site_name" content="Kimon's Blog">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="后端溜走了 · Kimon's Blog">
+  <meta property="og:description" content="后端暂时不在，等它回来就自动放行。">
+  <meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/css/offline.css">
+<script>
+(function(){try{var t=localStorage.getItem('kimon-theme');if(t){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
+</head>
+<body>
+
+<div class="of-ambient" aria-hidden="true">
+  <span class="of-blob of-b1"></span><span class="of-blob of-b2"></span>
+  <span class="of-blob of-b3"></span><span class="of-blob of-b4"></span>
+</div>
+
+<main class="of-wrap">
+  <div class="of-card">
+    <div class="of-icon" aria-hidden="true">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 17.5a27 27 0 0138 0"/>
+        <path d="M11.5 24a17.5 17.5 0 0125 0"/>
+        <path d="M18 30.5a8 8 0 0112 0"/>
+        <circle cx="24" cy="37" r="1.5" fill="currentColor" stroke="none"/>
+        <path d="M7 7l34 34"/>
+      </svg>
+    </div>
+
+    <h1>后端溜走了</h1>
+    <p class="of-lead">它把文章、照片和留言都顺走了，回来我马上叫你。</p>
+
+    <button class="of-btn of-primary" type="button" id="of-retry">再敲一次门</button>
+  </div>
+</main>
+
+<!-- 只引配置与断连脚本，绝不引 remote.js，否则会再次触发跳转造成循环 -->
+<script src="assets/js/config.js"></script>
+<script src="assets/js/offline.js"></script>
+</body>
+</html>

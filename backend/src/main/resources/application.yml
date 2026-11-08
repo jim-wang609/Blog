@@ -1,0 +1,65 @@
+server:
+  port: ${PORT:8080}
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: kimon-blog
+  datasource:
+    # 全站唯一数据源就是 MySQL。本地默认连 127.0.0.1:3306/kimon_blog，
+    # 生产用 DB_URL / DB_USER / DB_PASSWORD 三个环境变量覆盖（默认密码仅适配本机开发）。
+    # 注意：URL 不再带 createDatabaseIfNotExist，本地库需要按 README 先手动建一次。
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/kimon_blog?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false&rewriteBatchedStatements=true}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      # 只负责新库建表：schema-mysql.sql 全部是 CREATE TABLE IF NOT EXISTS，重复启动安全。
+      # 已有库的增量结构（新列 / 索引）由 service/SchemaMigrator 在启动时幂等补齐。
+      mode: always
+      schema-locations: classpath:schema-mysql.sql
+  servlet:
+    multipart:
+      max-file-size: 120MB
+      max-request-size: 130MB
+  web:
+    resources:
+      add-mappings: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  global-config:
+    banner: false
+
+app:
+  # 静态站点目录（index.html 所在），本地开发指向仓库根
+  static-dir: ${STATIC_DIR:../}
+  upload-dir: ${UPLOAD_DIR:../uploads}
+  # 不填会自动生成并保存到 storage/secret.key
+  jwt-secret: ${JWT_SECRET:}
+  cookie-secure: ${COOKIE_SECURE:false}
+  cookie-same-site: ${COOKIE_SAME_SITE:Lax}
+  # 允许的前端来源（前后端分离时用），逗号分隔
+  allowed-origins: ${ALLOWED_ORIGINS:}
+  # 首次初始化管理员密码（不填则通过后台页面设置）
+  init-admin-password: ${INIT_ADMIN_PASSWORD:}
+  # 首次初始化管理员的临时口令：配置后，/api/admin/setup 必须带上它才能创建管理员（空 = 不需要）
+  setup-token: ${SETUP_TOKEN:}
+  # 部署在 Nginx 等反向代理之后时，信任 X-Forwarded-For / X-Forwarded-Proto
+  trust-proxy: ${TRUST_PROXY:true}
+  # JSON 请求体大小上限（字节），默认 2 MiB（文章正文最多 40 万字，含 JSON 转义仍在 2 MiB 内）
+  max-json-body-bytes: ${MAX_JSON_BODY_BYTES:2097152}
+  # 业务时间统一时区（中国标准时间）；service 层时间工具 Time 固定使用 Asia/Shanghai
+  time-zone: ${APP_TIME_ZONE:Asia/Shanghai}
+  # visits 访问明细保留天数，每天 03:30 清理更早的记录
+  visits-retention-days: ${VISITS_RETENTION_DAYS:180}
+  # 站点对外访问地址（如 https://example.com），用于生成绝对链接；可留空
+  base-url: ${BASE_URL:}
+
+logging:
+  level:
+    root: info
+    com.kimon.blog: info

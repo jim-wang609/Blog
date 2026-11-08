@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta name="theme-color" content="#5B54E8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>管理台 · Kimon's Blog</title>
+  <meta name="description" content="Kimon's Blog 内容管理台，仅站主使用。">
+  <meta property="og:site_name" content="Kimon's Blog">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="管理台 · Kimon's Blog">
+  <meta property="og:description" content="Kimon's Blog 内容管理台，仅站主使用。">
+  <meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/dialog.css">
+<link rel="stylesheet" href="assets/css/studio.css">
+<script>
+(function(){try{var t=localStorage.getItem('kimon-theme');if(t){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/boot.js"></script>
+<script src="assets/js/dialog.js"></script>
+</head>
+<body class="studio">
+
+<a class="skip-link" href="#view">跳到正文</a>
+
+<div class="ambient" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+  <span class="blob b4"></span>
+</div>
+
+<div class="st-shell">
+  <aside class="st-side">
+    <a class="st-brand" href="home.html">
+      <span class="mk">K</span>
+      <span>Kimon<small>Studio</small></span>
+    </a>
+
+    <button class="st-nav-item on" data-view="overview">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-3H4zM14 7h6V4h-6z"/></svg>
+      <span>概览</span>
+    </button>
+    <button class="st-nav-item" data-view="posts">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M6 3h9l5 5v13H6z"/><path d="M14 3v6h6"/></svg>
+      <span>文章</span>
+    </button>
+    <button class="st-nav-item" data-view="comments">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H8l-4 4V5a2 2 0 012-2h13a2 2 0 012 2z"/></svg>
+      <span>评论</span>
+    </button>
+    <button class="st-nav-item" data-view="guestbook">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 8l9-5 9 5-9 5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>
+      <span>留言</span>
+    </button>
+    <button class="st-nav-item" data-view="diary">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 4h11l3 3v13H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+      <span>日记</span>
+    </button>
+    <button class="st-nav-item" data-view="notes">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+      <span>笔记</span>
+    </button>
+    <button class="st-nav-item" data-view="resources">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v11M8 10l4 4 4-4M4 20h16"/></svg>
+      <span>资源</span>
+    </button>
+    <button class="st-nav-item" data-view="gallery">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="3" y="5" width="18" height="15" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M4 17l5-5 4 4 3-3 4 4"/></svg>
+      <span>相册</span>
+    </button>
+    <button class="st-nav-item" data-view="terms">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M20 12l-8 8-8-8 8-8z"/><circle cx="12" cy="12" r="2.4"/></svg>
+      <span>分类标签</span>
+    </button>
+    <button class="st-nav-item" data-view="users">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M17 8h4M19 6v4"/></svg>
+      <span>账号</span>
+    </button>
+    <button class="st-nav-item" data-view="settings">
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 00.3 1.8l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.6 1.6 0 00-2.7 1.1V21a2 2 0 11-4 0v-.1A1.6 1.6 0 007 19.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1A1.6 1.6 0 003 13.6H3a2 2 0 110-4h.1A1.6 1.6 0 004.7 7l-.1-.1a2 2 0 112.8-2.8l.1.1a1.6 1.6 0 001.8.3H9.4A1.6 1.6 0 0010.5 3V3a2 2 0 114 0v.1a1.6 1.6 0 002.7 1.1l.1-.1a2 2 0 112.8 2.8l-.1.1a1.6 1.6 0 00-.3 1.8v.1a1.6 1.6 0 001.5 1h.1a2 2 0 110 4h-.1a1.6 1.6 0 00-1.5 1z"/></svg>
+      <span>设置</span>
+    </button>
+
+    <div class="st-side-foot">
+      <a class="st-link" href="home.html" target="_blank" rel="noopener">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 4h6v6M20 4l-8 8M10 4H4v16h16v-6"/></svg>
+        查看站点
+      </a>
+      <button class="st-link" id="btn-theme" type="button" style="background:none;border:none;cursor:pointer;padding:0">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+        切换主题
+      </button>
+      <button class="st-link" id="btn-logout" type="button" style="background:none;border:none;cursor:pointer;padding:0">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        退出登录
+      </button>
+    </div>
+  </aside>
+
+  <main class="st-main" id="view" tabindex="-1">
+    <div class="st-empty">载入中…</div>
+  </main>
+</div>
+
+<!-- 登录 / 初始化 -->
+<div class="st-gate" id="gate" hidden>
+  <div class="st-gate-card">
+    <h2 id="gate-title">登录管理台</h2>
+    <p id="gate-desc">输入管理员密码后即可管理文章、评论与资源。</p>
+
+    <div class="st-field">
+      <label for="gate-user">账号</label>
+      <input class="st-input" id="gate-user" placeholder="你的管理员账号" autocomplete="username">
+    </div>
+    <div class="st-field">
+      <label for="gate-pass">密码</label>
+      <input class="st-input" id="gate-pass" type="password" autocomplete="current-password">
+    </div>
+    <div class="st-field" id="gate-pass2-wrap" hidden>
+      <label for="gate-pass2">再输一次</label>
+      <input class="st-input" id="gate-pass2" type="password" autocomplete="new-password">
+    </div>
+
+    <button class="st-btn primary" id="gate-submit" style="width:100%;justify-content:center;margin-top:16px">进入</button>
+    <div class="st-gate-msg" id="gate-msg"></div>
+    <p style="margin:18px 0 0;text-align:center;font-size:12px">
+      <a href="enter.html?next=studio.html" style="color:var(--accent-text)">从站主入口登录</a>
+      <span style="color:var(--text-3)"> · </span>
+      <a href="home.html" style="color:var(--text-3)">回首页</a>
+    </p>
+  </div>
+</div>
+
+<div class="st-toast" id="toast"></div>
+
+<script src="assets/js/markdown.js"></script>
+<script src="assets/js/studio.js"></script>
+</body>
+</html>

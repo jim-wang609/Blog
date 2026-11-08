@@ -1,0 +1,62 @@
+{
+  "site": {
+    "name": "示例站",
+    "handle": "example",
+    "avatar": "",
+    "title": "这里写一句站点副标题",
+    "bio": "这里写站长自我介绍。这份文件只是首次启动时的示例种子数据，导入 MySQL 之后就不再读取。",
+    "tags": [],
+    "location": "城市 · 国家",
+    "started": "2026-01",
+    "updated": "2026-01-01",
+    "email": "hi@example.com",
+    "github": "@example",
+    "wechat": "站内索取",
+    "stats": {},
+    "footerNote": "这里写页脚版权说明。"
+  },
+  "posts": [
+    {
+      "id": "hello-world",
+      "section": "tech",
+      "title": "第一篇：这是一条示例文章",
+      "excerpt": "这是一条示例摘要，用来确认种子数据导入成功。",
+      "body": "这是一篇示例文章，可以直接在管理台里删掉。\n\n## 正文支持 Markdown\n\n- 标题、列表、引用、代码块都可以用\n- 图片先在后台上传，再插入到正文\n\n> 导入完成后，内容就存在 MySQL 里了；改 seed.json 不会再影响已有文章。\n",
+      "cat": "示例",
+      "tags": "[\"示例\",\"上手\"]",
+      "minutes": 3,
+      "pinned": 0,
+      "cover": "{\"glyph\":\"hi\",\"tint\":\"teal\",\"image\":\"\"}",
+      "status": "published",
+      "views": 0,
+      "date": "2026-01-01"
+    }
+  ],
+  "resources": [],
+  "diaryBooks": [
+    {
+      "id": "daily",
+      "name": "日常随记",
+      "intro": "示例日记本，可以直接改名或删掉。",
+      "accent": "teal",
+      "sort": 0,
+      "entries": [
+        {
+          "id": "d-1",
+          "day": null,
+          "date": "2026-01-01",
+          "weekday": "周四",
+          "cat": "daily",
+          "title": "第一条示例日记",
+          "body": "日记条目也是同样的思路：第一次导入，之后都在数据库里维护。",
+          "sort": 0
+        }
+      ]
+    }
+  ],
+  "notes": {
+    "cheatsheets": [],
+    "links": []
+  },
+  "guestbook": []
+}
